@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Fonction pour récupérer les travaux
     function fetchWorks() {
       fetch("http://localhost:5678/api/works")
         .then(response => response.json())
