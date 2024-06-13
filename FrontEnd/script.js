@@ -67,6 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const filteredWorks = worksData.filter(work => work.categoryId === categoryId);
       addWorks(filteredWorks);
      }
+
      fetchCategories();
      fetchWorks();
   });
