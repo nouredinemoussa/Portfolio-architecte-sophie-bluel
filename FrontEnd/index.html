@@ -9,6 +9,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 <header>
@@ -35,7 +36,44 @@
 		</article>
 	</section>
 	<section id="portfolio">
-		<h2>Mes Projets</h2>
+		<span><h2>Mes Projets</h2>
+		<div id="update">
+			<i class="fa-regular fa-pen-to-square"></i>
+			<a href="#" id="modal-link">modifier</a>
+			<div id="open-modal" class="modal">
+				<div class="modal-content-1">
+					<span><i class="fa-solid fa-xmark close-modal"></i>
+						<h2>Galerie photo</h2>
+					</span>
+						<div class="modal-gallery">
+						</div>
+						<div class="line"></div>
+						<input type="submit" id="add-photo-1" value="Ajouter une photo">
+					</div>
+					<div class="modal-content-2">
+						<span><i class="fa-solid fa-arrow-left arrow-return"></i>
+							<i class="fa-solid fa-xmark close-modal"></i>
+							<h2>Ajout photo</h2>
+						</span>
+						<div class="photo-container">
+							<i class="fa-regular fa-image"></i>
+							<input type="submit" id="button-add" value="+ Ajouter photo">
+							<p>jpg, png: 4mo max</p>
+						</div>
+						<form id="new-photo-form">
+								<label for="photo-title">Titre</label>
+								<input type="text" id="photo-title" name="title">
+								<label for="photo-category">Catégorie</label>
+								<select id="photo-category" name="category">
+								</select>
+							</form>
+						<div class="line"></div>
+						<input type="submit" id="add-photo-2" value="Valider">
+					</div>
+				</div>
+			</div>
+		</div>
+	</span>
 		<div class="categories"></div>
 		<div class="gallery">
 		</div>
@@ -63,5 +101,6 @@
 	</nav>
 </footer>
 <script src="/FrontEnd/script.js"></script>
+<script src="/FrontEnd/script-modal.js"></script>
 </body>
 </html>

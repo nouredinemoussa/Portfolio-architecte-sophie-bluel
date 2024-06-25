@@ -25,14 +25,16 @@
     <main>
     <section id="form-section">
     <h2>Log In</h2>
-    <form action="#" method="post">
+    <form id="login-form" method="post">
        <span><label for="mail" >E-mail</label></span>
        <input type="email" id="mail" name="user_mail"/>
        <span><label for="password" >Mot de passe</label></span>
        <input type="password" id="password" name="user_password"/>
+       <input type="submit" id="login"value="Se connecter">
     </form>
-    <input type="submit" id="login"value="Se connecter">
     <a id="lost-password">Mot de passe oublié</a>
+    <div id="error-message" class="error"></div>
+    <script src="/FrontEnd/script.js"></script>
     </section>
 </main>
     <footer>
