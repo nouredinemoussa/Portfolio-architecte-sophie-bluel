@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   let worksData = [];
-  
+
   function fetchWorks() {
     fetch("http://localhost:5678/api/works")
       .then(response => response.json())
@@ -45,25 +45,39 @@ document.addEventListener('DOMContentLoaded', () => {
     const buttonTous = document.createElement("button");
     buttonTous.textContent = "Tous";
     buttonTous.className = "filter";
+    buttonTous.id = "filter-tous"
     buttonTous.addEventListener("click", () => {
       addWorks(worksData);
+      setActiveButton(buttonTous);
     });
     categoriesGroup.appendChild(buttonTous);
 
     categories.forEach(category => {
       const buttonCategory = document.createElement("button");
       buttonCategory.textContent = category.name;
+      buttonCategory.id = `filter-${category.id}`
       buttonCategory.addEventListener("click", () => {
         categoryFilter(category.id);
+        activeFilterButton(buttonCategory);
       });
       buttonCategory.className = "filter";
       categoriesGroup.appendChild(buttonCategory);
     });
+
+    activeFilterButton(buttonTous);
   }
 
   function categoryFilter(categoryId) {
     const filteredWorks = worksData.filter(work => work.categoryId === categoryId);
     addWorks(filteredWorks);
+  }
+
+  function activeFilterButton(activeButton) {
+    const buttons = document.querySelectorAll('.filter');
+    buttons.forEach(button => {
+      button.classList.remove('active-filter');
+    });
+    activeButton.classList.add('active-filter');
   }
 
   fetchCategories();
