@@ -83,7 +83,40 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     activeButton.classList.add("active-filter");
   }
+  const authLink = document.getElementById('auth-link');
+  const editDiv = document.getElementById('edit');
+  const modalLink = document.getElementById('update');
+  const header = document.getElementById('header-container');
+
+
+  function checkUserAuth() {
+    const authToken = localStorage.getItem('authToken');
+    if (authToken) {
+      authLink.textContent = 'logout';
+      authLink.href = '#';
+      authLink.addEventListener('click', logout);
+     
+      editDiv.style.display = 'flex';
+      modalLink.style.display = 'flex';
+      header.style.marginTop = '0';
+    } else {
+      authLink.textContent = 'login';
+      authLink.href = 'login.html';
+      authLink.removeEventListener('click', logout);
+      
+      editDiv.style.display = 'none';
+      modalLink.style.display = 'none';
+      header.style.marginTop = '50px';
+    }
+  }
+
+  function logout(event) {
+    event.preventDefault();
+    localStorage.removeItem('authToken');
+    checkUserAuth();
+  }
 
   fetchCategories();
   fetchWorks();
+  checkUserAuth();
 });
